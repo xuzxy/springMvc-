@@ -239,5 +239,270 @@ public class AdminController {
         map.put("adminPwd",adminInfo.getAdminPwd());
         return "home";
     }
+
+
+
+
+
+  /* 第二遍 //第一种  springMVC 的传值方式;原始方式: request + session + request 的转发
+    //传统的mvc的方法（不返回json数据，不使用 @ResponseBody）,他要跳转
+    @RequestMapping("/yuansheng")
+    // public  String yuansheng(AdminInfo adminInfo, HttpSession session){  //
+    public  String yuansheng(HttpSession session, HttpServletRequest request){
+        System.out.println("原生方式  页面赋值");
+        //  System.out.println("adminInfo = " + adminInfo);
+        //登录如果验证成功， 那么需要把登录信息 放到session域当中
+        //   session.setAttribute("adminInfo",adminInfo);
+        String adminName = request.getParameter("adminName");
+        String adminPwd = request.getParameter("adminPwd");
+        request.setAttribute("adminName",adminName);
+        request.setAttribute("adminPwd",adminPwd);
+        //  request.getRequestDispatcher("home.jsp").forward(request,response);
+        //servlet转发
+        //springMVC中的转发
+        // return "home"; //这个和 PageController 里的查找jsp的方法没联系
+        //   return "forward:/WEB-INF/pages/home.jsp"; //springMVC中的转发
+        // return "forward:/pages/home"; //springmvc中的转发
+        //重定向，servlet   response.sendreDirect("/ww.baidu.com") 重定向携带不了数据
+        return "redirect:https://www.baidu.com"; //不带/ 和带/ 区别： http://localhost:8080
+    }
+
+    //第二种  springMVC 的传值方式;
+    @RequestMapping("/modelAndView")
+    public ModelAndView modelAndView(AdminInfo adminInfo){
+        //model 和视图 通俗， 数据显示，  modelAndView 可以代替 转发功能，更强大了
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("adminName",adminInfo.getAdminName());
+        mv.addObject("adminPwd",adminInfo.getAdminPwd());
+        System.out.println("以上model 的绑定，即数据的绑定");
+        mv.setViewName("home");
+        return mv;
+    }
+
+
+
+    //第三种  springMVC 的传值方式;
+    @RequestMapping("/model")
+    public String model(AdminInfo adminInfo, Model model){
+        model.addAttribute("adminName",adminInfo.getAdminName());
+        model.addAttribute("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+
+    }
+
+
+
+    //第四种  springMVC 的传值方式;
+    @RequestMapping("/modelMap")
+    public String modelMap(AdminInfo adminInfo, ModelMap modelMap){
+        modelMap.put("adminName",adminInfo.getAdminName());
+        modelMap.put("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+    }
+
+
+    // //第五种  springMVC 的传值方式; map 灵活
+    @RequestMapping("/map")
+    public String map(AdminInfo adminInfo,Map<String,Object> map){
+        map.put("adminName",adminInfo.getAdminName());
+        map.put("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+    }*/
+
+  /* 第三遍 //第一种  springMVC 的传值方式;原始方式: request + session + request 的转发
+    //传统的mvc的方法（不返回json数据，不使用 @ResponseBody）,他要跳转
+    @RequestMapping("/yuansheng")
+    // public  String yuansheng(AdminInfo adminInfo, HttpSession session){  //
+    public  String yuansheng(HttpSession session, HttpServletRequest request){
+        System.out.println("原生方式  页面赋值");
+        //  System.out.println("adminInfo = " + adminInfo);
+        //登录如果验证成功， 那么需要把登录信息 放到session域当中
+        //   session.setAttribute("adminInfo",adminInfo);
+        String adminName = request.getParameter("adminName");
+        String adminPwd = request.getParameter("adminPwd");
+        request.setAttribute("adminName",adminName);
+        request.setAttribute("adminPwd",adminPwd);
+        //  request.getRequestDispatcher("home.jsp").forward(request,response);
+        //servlet转发
+        //springMVC中的转发
+        // return "home"; //这个和 PageController 里的查找jsp的方法没联系
+        //   return "forward:/WEB-INF/pages/home.jsp"; //springMVC中的转发
+        // return "forward:/pages/home"; //springmvc中的转发
+        //重定向，servlet   response.sendreDirect("/ww.baidu.com") 重定向携带不了数据
+        return "redirect:https://www.baidu.com"; //不带/ 和带/ 区别： http://localhost:8080
+    }
+
+    //第二种  springMVC 的传值方式;
+    @RequestMapping("/modelAndView")
+    public ModelAndView modelAndView(AdminInfo adminInfo){
+        //model 和视图 通俗， 数据显示，  modelAndView 可以代替 转发功能，更强大了
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("adminName",adminInfo.getAdminName());
+        mv.addObject("adminPwd",adminInfo.getAdminPwd());
+        System.out.println("以上model 的绑定，即数据的绑定");
+        mv.setViewName("home");
+        return mv;
+    }
+
+
+
+    //第三种  springMVC 的传值方式;
+    @RequestMapping("/model")
+    public String model(AdminInfo adminInfo, Model model){
+        model.addAttribute("adminName",adminInfo.getAdminName());
+        model.addAttribute("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+
+    }
+
+
+
+    //第四种  springMVC 的传值方式;
+    @RequestMapping("/modelMap")
+    public String modelMap(AdminInfo adminInfo, ModelMap modelMap){
+        modelMap.put("adminName",adminInfo.getAdminName());
+        modelMap.put("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+    }
+
+
+    // //第五种  springMVC 的传值方式; map 灵活
+    @RequestMapping("/map")
+    public String map(AdminInfo adminInfo,Map<String,Object> map){
+        map.put("adminName",adminInfo.getAdminName());
+        map.put("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+    }*/
+
+/* 第四遍 //第一种  springMVC 的传值方式;原始方式: request + session + request 的转发
+    //传统的mvc的方法（不返回json数据，不使用 @ResponseBody）,他要跳转
+    @RequestMapping("/yuansheng")
+    // public  String yuansheng(AdminInfo adminInfo, HttpSession session){  //
+    public  String yuansheng(HttpSession session, HttpServletRequest request){
+        System.out.println("原生方式  页面赋值");
+        //  System.out.println("adminInfo = " + adminInfo);
+        //登录如果验证成功， 那么需要把登录信息 放到session域当中
+        //   session.setAttribute("adminInfo",adminInfo);
+        String adminName = request.getParameter("adminName");
+        String adminPwd = request.getParameter("adminPwd");
+        request.setAttribute("adminName",adminName);
+        request.setAttribute("adminPwd",adminPwd);
+        //  request.getRequestDispatcher("home.jsp").forward(request,response);
+        //servlet转发
+        //springMVC中的转发
+        // return "home"; //这个和 PageController 里的查找jsp的方法没联系
+        //   return "forward:/WEB-INF/pages/home.jsp"; //springMVC中的转发
+        // return "forward:/pages/home"; //springmvc中的转发
+        //重定向，servlet   response.sendreDirect("/ww.baidu.com") 重定向携带不了数据
+        return "redirect:https://www.baidu.com"; //不带/ 和带/ 区别： http://localhost:8080
+    }
+
+    //第二种  springMVC 的传值方式;
+    @RequestMapping("/modelAndView")
+    public ModelAndView modelAndView(AdminInfo adminInfo){
+        //model 和视图 通俗， 数据显示，  modelAndView 可以代替 转发功能，更强大了
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("adminName",adminInfo.getAdminName());
+        mv.addObject("adminPwd",adminInfo.getAdminPwd());
+        System.out.println("以上model 的绑定，即数据的绑定");
+        mv.setViewName("home");
+        return mv;
+    }
+
+
+
+    //第三种  springMVC 的传值方式;
+    @RequestMapping("/model")
+    public String model(AdminInfo adminInfo, Model model){
+        model.addAttribute("adminName",adminInfo.getAdminName());
+        model.addAttribute("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+
+    }
+
+
+
+    //第四种  springMVC 的传值方式;
+    @RequestMapping("/modelMap")
+    public String modelMap(AdminInfo adminInfo, ModelMap modelMap){
+        modelMap.put("adminName",adminInfo.getAdminName());
+        modelMap.put("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+    }
+
+
+    // //第五种  springMVC 的传值方式; map 灵活
+    @RequestMapping("/map")
+    public String map(AdminInfo adminInfo,Map<String,Object> map){
+        map.put("adminName",adminInfo.getAdminName());
+        map.put("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+    }*/
+
+/* 第五遍 //第一种  springMVC 的传值方式;原始方式: request + session + request 的转发
+    //传统的mvc的方法（不返回json数据，不使用 @ResponseBody）,他要跳转
+    @RequestMapping("/yuansheng")
+    // public  String yuansheng(AdminInfo adminInfo, HttpSession session){  //
+    public  String yuansheng(HttpSession session, HttpServletRequest request){
+        System.out.println("原生方式  页面赋值");
+        //  System.out.println("adminInfo = " + adminInfo);
+        //登录如果验证成功， 那么需要把登录信息 放到session域当中
+        //   session.setAttribute("adminInfo",adminInfo);
+        String adminName = request.getParameter("adminName");
+        String adminPwd = request.getParameter("adminPwd");
+        request.setAttribute("adminName",adminName);
+        request.setAttribute("adminPwd",adminPwd);
+        //  request.getRequestDispatcher("home.jsp").forward(request,response);
+        //servlet转发
+        //springMVC中的转发
+        // return "home"; //这个和 PageController 里的查找jsp的方法没联系
+        //   return "forward:/WEB-INF/pages/home.jsp"; //springMVC中的转发
+        // return "forward:/pages/home"; //springmvc中的转发
+        //重定向，servlet   response.sendreDirect("/ww.baidu.com") 重定向携带不了数据
+        return "redirect:https://www.baidu.com"; //不带/ 和带/ 区别： http://localhost:8080
+    }
+
+    //第二种  springMVC 的传值方式;
+    @RequestMapping("/modelAndView")
+    public ModelAndView modelAndView(AdminInfo adminInfo){
+        //model 和视图 通俗， 数据显示，  modelAndView 可以代替 转发功能，更强大了
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("adminName",adminInfo.getAdminName());
+        mv.addObject("adminPwd",adminInfo.getAdminPwd());
+        System.out.println("以上model 的绑定，即数据的绑定");
+        mv.setViewName("home");
+        return mv;
+    }
+
+
+
+    //第三种  springMVC 的传值方式;
+    @RequestMapping("/model")
+    public String model(AdminInfo adminInfo, Model model){
+        model.addAttribute("adminName",adminInfo.getAdminName());
+        model.addAttribute("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+
+    }
+
+
+
+    //第四种  springMVC 的传值方式;
+    @RequestMapping("/modelMap")
+    public String modelMap(AdminInfo adminInfo, ModelMap modelMap){
+        modelMap.put("adminName",adminInfo.getAdminName());
+        modelMap.put("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+    }
+
+
+    // //第五种  springMVC 的传值方式; map 灵活
+    @RequestMapping("/map")
+    public String map(AdminInfo adminInfo,Map<String,Object> map){
+        map.put("adminName",adminInfo.getAdminName());
+        map.put("adminPwd",adminInfo.getAdminPwd());
+        return "home";
+    }*/
+
 }
 

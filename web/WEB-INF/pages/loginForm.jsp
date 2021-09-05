@@ -12,9 +12,10 @@
 </head>
 <body>
 <div>
-   <%-- <form action="/api/admin/yuansheng" method="post">--%>
-       <%--<form action="/api/admin/modelAndView" method="post">--%>
-           <%--<form action="/api/admin/modelMap" method="post">--%> <%--第四种--%>
+   <%-- <form action="/api/admin/yuansheng" method="post">--%>  <%--第一种--%>
+       <%--<form action="/api/admin/modelAndView" method="post">--%>  <%--第二种--%>
+       <%--<form action="/api/admin/model" method="post">--%>  <%--第三种--%>
+       <%--<form action="/api/admin/modelMap" method="post">--%> <%--第四种--%>
                <form action="/api/admin/map" method="post">  <%-- 第五种--%>
        用户名: <input type="text" name="adminName"><br/>
        密码: <input type="text" name="adminPwd"><br/>
@@ -23,6 +24,60 @@
 
 </div>
 
+
+<%-- 第二遍<div>
+     <form action="/api/admin/yuansheng" method="post">  第一种
+    <<form action="/api/admin/modelAndView" method="post">  第二种-
+    <form action="/api/admin/model" method="post"> 第三种
+    <form action="/api/admin/modelMap" method="post"> 第四种
+    <form action="/api/admin/map" method="post">  第五种
+        用户名: <input type="text" name="adminName"><br/>
+        密码: <input type="text" name="adminPwd"><br/>
+        <input type="submit" value="登录">
+    </form>
+
+</div>--%>
+
+
+<%--三遍<div>
+     <form action="/api/admin/yuansheng" method="post">  第一种
+    <<form action="/api/admin/modelAndView" method="post">  第二种-
+    <form action="/api/admin/model" method="post"> 第三种
+    <form action="/api/admin/modelMap" method="post"> 第四种
+    <form action="/api/admin/map" method="post">  第五种
+        用户名: <input type="text" name="adminName"><br/>
+        密码: <input type="text" name="adminPwd"><br/>
+        <input type="submit" value="登录">
+    </form>
+
+</div>--%>
+
+<%--第四遍<div>
+     <form action="/api/admin/yuansheng" method="post">  第一种
+    <<form action="/api/admin/modelAndView" method="post">  第二种-
+    <form action="/api/admin/model" method="post"> 第三种
+    <form action="/api/admin/modelMap" method="post"> 第四种
+    <form action="/api/admin/map" method="post">  第五种
+        用户名: <input type="text" name="adminName"><br/>
+        密码: <input type="text" name="adminPwd"><br/>
+        <input type="submit" value="登录">
+    </form>
+
+</div>--%>
+
+
+<%--第五遍<div>
+     <form action="/api/admin/yuansheng" method="post">  第一种
+    <<form action="/api/admin/modelAndView" method="post">  第二种-
+    <form action="/api/admin/model" method="post"> 第三种
+    <form action="/api/admin/modelMap" method="post"> 第四种
+    <form action="/api/admin/map" method="post">  第五种
+        用户名: <input type="text" name="adminName"><br/>
+        密码: <input type="text" name="adminPwd"><br/>
+        <input type="submit" value="登录">
+    </form>
+
+</div>--%>
 
 </body>
 </html>
